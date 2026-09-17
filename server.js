@@ -17,10 +17,12 @@ const SITE_URL = process.env.SITE_URL;
 const API_URL = process.env.API_URL;
 const DOWNLOAD_URL = process.env.DOWNLOAD_URL;
 
-const ZEK_PRICE = Number(process.env.ZEK_PRICE || 29.90);
+const ZEK_PRICE = Number(process.env.ZEK_PRICE || 49.90);
 const MP_TEST = process.env.MP_TEST === "true";
 
-const resend = new Resend(RESEND_API_KEY);
+const resend = RESEND_API_KEY
+    ? new Resend(RESEND_API_KEY)
+    : null;
 
 // suficiente para o primeiro teste.
 // Depois substituiremos por banco.
